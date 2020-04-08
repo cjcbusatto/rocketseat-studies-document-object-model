@@ -1,0 +1,48 @@
+<!-- 
+    Challenge 2
+    In this exercise we extend the challenge 1 with the following feature:
+    Every time the user hovers over a square, change its color to a random one
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Challenge 2</title>
+</head>
+<body>
+<div id="container">
+    <button id="btnCreateSquare">Create Square</button>
+</div>
+</body>
+<script>
+    function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    const containerElement = document.querySelector('#container');
+    const buttonCreateSquare = document.querySelector('#btnCreateSquare');
+    buttonCreateSquare.onclick = function () {
+        // Create square
+        const divSquareElement = document.createElement('div');
+        divSquareElement.style.backgroundColor = '#f00';
+        divSquareElement.style.margin = '10px';
+        divSquareElement.style.height = '100px';
+        divSquareElement.style.width = '100px';
+        
+        // Add listener for hover action
+        divSquareElement.addEventListener('mouseover', function(){
+            this.style.backgroundColor = getRandomColor();
+        });
+
+        // Append to container div
+        containerElement.appendChild(divSquareElement);
+    }
+</script>
+</html>

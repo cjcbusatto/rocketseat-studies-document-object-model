@@ -1,0 +1,50 @@
+<!-- 
+    Challenge 4 extends #3
+    - Add a button like:
+        <input type="text" name="nome">
+        <button onClick="addUser()">Add User</button>
+    - On click, add the user typed on input
+    - Clear the input
+-->
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge 4</title>
+</head>
+<body>
+    <div id="container">
+        <input type="text" id="txtName" /><button id="btnAddUser" onclick="addUser()">Add user</button>
+    </div>
+</body>
+<script>
+    // Generate the initial list of users
+    const names = ["Diego", "Gabriel", "Lucas"];
+    const $container = document.querySelector("#container");
+    const $ul = document.createElement('ul');
+
+    names.forEach((name) => {
+        const $li = document.createElement('li');
+        const $textNode = document.createTextNode(name);
+        $li.appendChild($textNode);
+        $ul.appendChild($li);
+    });
+    $container.appendChild($ul);
+    
+    function addUser(){
+        const $li = document.createElement('li');
+        
+        const $inputName = document.querySelector("#txtName");
+        const $textNode = document.createTextNode($inputName.value);
+        $li.appendChild($textNode);
+
+        // Include item on the list
+        $ul.appendChild($li);
+        
+        // Clean the input
+        $inputName.value = '';
+    }
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!-- 
+    Create a button on the screen. Once clicked, it should display a red square
+    with 100px height. For each click a new square should be displayed. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge 1</title>
+</head>
+<body>
+    <div id="container">
+        <button id="btnCreateSquare">Create Square</button>
+    </div>
+</body>
+<script>
+    const containerElement = document.querySelector('#container');
+    const buttonCreateSquare = document.querySelector('#btnCreateSquare');
+    buttonCreateSquare.onclick = function () {
+        const divSquareElement = document.createElement('div');
+        divSquareElement.style.backgroundColor = '#f00';
+        divSquareElement.style.margin = '10px';
+        divSquareElement.style.height = '100px';
+        divSquareElement.style.width = '100px';
+        
+        containerElement.appendChild(divSquareElement);
+    }
+</script>
+</html>

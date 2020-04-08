@@ -1,0 +1,35 @@
+<!-- Challenge 3
+From the array 
+
+var names = ["Diego", "Gabriel", "Lucas"];
+
+Display in a bullet list format, e.g.:
+- Diego
+- Gabriel
+- Lucas 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge 3</title>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+<script>
+    const names = ["Diego", "Gabriel", "Lucas"];
+    const $container = document.querySelector("#container");
+    const $ul = document.createElement('ul');
+    
+    names.forEach((name) => {
+        const $li = document.createElement('li');
+        const $textNode = document.createTextNode(name);
+        $li.appendChild($textNode);
+        $ul.appendChild($li);
+    });
+
+    $container.appendChild($ul);
+</script>
+</html>
